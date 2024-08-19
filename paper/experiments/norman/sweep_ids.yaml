@@ -1,3 +1,1 @@
-# Fill in wandb sweep IDs below (eg {user}/exp008_sams_vae_norman_ood/{id})
-# scversal: seungheun/scversal_norman_fr0.75_paper_concat/ynxq127m
-scversal: seungheun/scversal_norman_fr0.75_paper_concat/lb99mli3
+# cradle_vae: {user}/cradle_vae_norman_paper/{id}

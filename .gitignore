@@ -2,3 +2,4 @@ wandb
 results
 analysis
 datasets
+__pycache__

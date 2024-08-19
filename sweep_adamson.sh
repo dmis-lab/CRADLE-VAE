@@ -1,3 +1,2 @@
-# redun run paper/experiments/scversal_adamson/1_launch_train_sweeps.py launch_all_train_sweeps --num-agents-per-sweep 5 --start-device 1
-
-redun run paper/experiments/scversal_adamson/2_launch_sweep_evals.py launch_all_sweep_evals --jobs-per-agent 30 --device 3 --qc-pass True
+redun run paper/experiments/adamson/1_launch_train_sweeps.py launch_all_train_sweeps --num-agents-per-sweep 5 --start-device 0
+# redun run paper/experiments/adamson/2_launch_sweep_evals.py launch_all_sweep_evals --jobs-per-agent 15 --device 0 --qc-pass True
