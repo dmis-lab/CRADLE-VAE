@@ -25,9 +25,3 @@ For larger experiments, we provide support for wandb sweeps using redun.
 ```
 bash sweep_norman.sh
 ```
-
-## Replicating results
-
-We provide sweep configurations, python scripts, and jupyter notebooks to replicate each analysis from the paper in the `paper/experiments/` directory.
-Additionally, we provide our precomputed metrics and checkpoints for download to allow exploration of the results without rerunning all experiments.
-Detailed instructions for replicating each analysis are available in the README files of the `paper/experiments/` directory.
