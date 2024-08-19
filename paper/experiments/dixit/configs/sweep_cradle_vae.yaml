@@ -42,10 +42,6 @@ parameters:
   data_module_kwargs.use_each_qc: 
     value: False
 
-  # wandb does not provide mechanism to define dependent variables
-  # in order to tie the value of multiple variables together,
-  # we will preprocess the config to split variables separated by "--"
-  # and use the same values for each
   model_kwargs.n_latent--guide_kwargs.n_latent:
     value: 200
   model_kwargs.decoder_n_layers--guide_kwargs.basal_encoder_n_layers:

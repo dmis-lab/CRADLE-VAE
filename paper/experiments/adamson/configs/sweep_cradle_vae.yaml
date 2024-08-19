@@ -15,7 +15,7 @@ parameters:
       - 3
       - 4
   max_epochs:
-    value: 2000 # 3, 2000
+    value: 2000
   gradient_clip_norm:
     value: 100
 
@@ -32,16 +32,10 @@ parameters:
       - 4
       - 5
 
-  # wandb does not provide mechanism to define dependent variables
-  # in order to tie the value of multiple variables together,
-  # we will preprocess the config to split variables separated by "--"
-  # and use the same values for each
   model_kwargs.n_latent--guide_kwargs.n_latent:
-    values: # 100
-      - 100
+    value: 100
   model_kwargs.decoder_n_layers--guide_kwargs.basal_encoder_n_layers:
-    values: 
-      - 1
+    value: 1
 
   # Model class + hyperparameters
   model:
@@ -53,8 +47,7 @@ parameters:
   model_kwargs.likelihood_key:
     value: library_nb
   model_kwargs.decoder_n_hidden:
-    values:
-      - 400
+    value: 400
   model_kwargs.sum_mode:
     value: False
 
@@ -62,16 +55,13 @@ parameters:
   guide:
     value: cradle_vae_CorrelatedNormalGuide
   guide_kwargs.basal_encoder_n_hidden:
-    values: # 400
-      - 400
+    value: 400
   guide_kwargs.basal_encoder_input_normalization:
     value: log_standardize
   guide_kwargs.embedding_encoder_n_layers:
-    values: # 4
-      - 4
+    value: 4
   guide_kwargs.embedding_encoder_n_hidden:
-    values:
-      - 400
+    value: 400
   guide_kwargs.mean_field_encoder:
     value: False
 
@@ -79,17 +69,15 @@ parameters:
   loss_module:
     value: cradle_vae_ELBOLossModule
   loss_module_kwargs.beta:
-    values:
-      - 0.1
+    value: 0.1
   loss_module_kwargs.alpha:
     value:
 
   # Lightning module hyperparameters
   lightning_module_kwargs.lr:
-    value: 0.0003
+    value: 0.0001
   lightning_module_kwargs.n_particles:
-    values: 
-      - 5
+    value: 5
 
   # Predictor class + hyperparameters (used to evaluation)
   predictor:
