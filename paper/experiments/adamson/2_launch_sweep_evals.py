@@ -15,7 +15,7 @@ def launch_all_sweep_evals(
     qc_pass: Optional[bool] = False,
     batch_size: Optional[int] = 128,
 ):
-    with open("paper/experiments/scversal_adamson/sweep_ids.yaml") as f:
+    with open("paper/experiments/adamson/sweep_ids.yaml") as f:
         sweep_ids = yaml.safe_load(f)
 
     device = [int(i) for i in device]

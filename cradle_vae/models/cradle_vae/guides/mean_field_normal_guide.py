@@ -5,17 +5,17 @@ import torch
 from torch import nn
 from torch.distributions import Normal
 
-from scversal.data.utils.perturbation_datamodule import (
+from cradle_vae.data.utils.perturbation_datamodule import (
     ObservationNormalizationStatistics,
 )
-from scversal.models.utils.gumbel_softmax_bernoulli import (
+from cradle_vae.models.utils.gumbel_softmax_bernoulli import (
     GumbelSoftmaxBernoulliStraightThrough,
 )
-from scversal.models.utils.mlp import get_likelihood_mlp
-from scversal.models.utils.normalization import get_normalization_module
+from cradle_vae.models.utils.mlp import get_likelihood_mlp
+from cradle_vae.models.utils.normalization import get_normalization_module
 
 
-class scversal_qmMeanFieldNormalGuide(nn.Module):
+class cradle_vae_MeanFieldNormalGuide(nn.Module):
     def __init__(
         self,
         n_latent: int,
@@ -60,14 +60,13 @@ class scversal_qmMeanFieldNormalGuide(nn.Module):
         self.param_dict["q_qc_mask_logits"] = torch.nn.Parameter(
             mask_init_logits * torch.ones((n_qc, n_latent))
         )
-        ####----BAEK----####
+
         self.param_dict["q_qc_E_loc"] = torch.nn.Parameter(
             embedding_loc_init_scale * torch.randn((n_qc, n_latent))
         )
         self.param_dict["q_qc_E_log_scale"] = torch.nn.Parameter(
             np.log(embedding_scale_init) * torch.ones((n_qc, n_latent))
         )
-        ####----BAEK----####
 
         if self.basal_encoder_input_normalization is None:
             self.normalization_module = None

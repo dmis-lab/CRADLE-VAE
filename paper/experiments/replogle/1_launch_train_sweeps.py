@@ -16,7 +16,7 @@ def launch_all_train_sweeps(
     # if num_agents_per_sweep is None:
     #     num_agents_per_sweep = len(devices)
     #     devices = [int(i) for i in devices]
-    config_paths = redun.file.glob_file("paper/experiments/scversal_replogle/configs/*.yaml")
+    config_paths = redun.file.glob_file("paper/experiments/replogle/configs/*.yaml")
     out = []
     for path in config_paths:
         ret = launch_sweep(
