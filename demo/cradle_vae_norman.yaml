@@ -1,0 +1,58 @@
+# Experiment hyperparameters
+name: cradle_vae_norman
+seed: 0
+max_epochs: 2000 # 2000
+gradient_clip_norm: 100
+devices: [0]
+
+# WandB hyperparameters
+# can set to True to save metrics and checkpoints to WandB
+use_wandb: True
+wandb_kwargs.name: cradle_vae_norman
+wandb_kwargs.project: cradle_vae_debug
+
+# Data module class + hyperparameters
+data_module: NormanOODCombinationDataModule
+data_module_kwargs.batch_size: 512
+data_module_kwargs.data_path: ./datasets/norman_qc.h5ad
+data_module_kwargs.frac_combinations_train: 0.75
+data_module_kwargs.frac_combinations_test: 0.25
+data_module_kwargs.split_seed: 0
+data_module_kwargs.highly_variable_genes_only: False
+data_module_kwargs.encode_combos_as_unique: False
+data_module_kwargs.qc_threshold: 3
+data_module_kwargs.use_each_qc: False
+
+# Model class + hyperparameters
+model: cradle_vae_Model
+model_kwargs.n_latent: 200
+model_kwargs.mask_prior_prob: 0.01
+model_kwargs.embedding_prior_scale: 1
+model_kwargs.likelihood_key: library_nb
+model_kwargs.decoder_n_layers: 1
+model_kwargs.decoder_n_hidden: 400
+model_kwargs.sum_mode: False
+
+
+# Guide class + hyperparameters
+guide: cradle_vae_CorrelatedNormalGuide
+guide_kwargs.n_latent: 200
+guide_kwargs.basal_encoder_n_layers: 1
+guide_kwargs.basal_encoder_n_hidden: 400
+guide_kwargs.embedding_encoder_n_layers: 4
+guide_kwargs.embedding_encoder_n_hidden: 400
+guide_kwargs.basal_encoder_input_normalization: log_standardize
+guide_kwargs.mean_field_encoder: False
+
+# Loss module class + hyperparameters
+# from same subdirectory as model and guide
+loss_module: cradle_vae_ELBOLossModule
+loss_module_kwargs.beta: 0.1
+
+# Lightning module hyperparameters
+lightning_module_kwargs.lr: 0.0003 # 0.0003 , 0.00005, 0.00001
+lightning_module_kwargs.n_particles: 5
+
+# Predictor class + hyperparameters (used to evaluation)
+# also much match model / guide, in same subdirectory
+predictor: cradle_vae_Predictor

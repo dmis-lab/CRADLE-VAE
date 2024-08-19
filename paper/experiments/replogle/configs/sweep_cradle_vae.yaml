@@ -1,0 +1,96 @@
+program: train_replogle.py
+method: grid
+name: cradle_vae
+project: cradle_vae_replogle_paper
+metric:
+  name: val/IWELBO
+  goal: maximize
+parameters:
+  # Experiment hyperparameters
+  seed:
+    values: 
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+  max_epochs:
+    value: 2000 # 3, 2000
+  gradient_clip_norm:
+    value: 100
+
+  # Data module class + hyperparameters
+  data_module:
+    value: ReplogleDataModule
+  data_module_kwargs.batch_size:
+    value: 512
+  data_module_kwargs.data_path:
+    value: ./datasets/replogle_qc.h5ad
+  data_module_kwargs.qc_threshold:
+    values: 
+      - 3
+      - 4
+      - 5
+      
+  # wandb does not provide mechanism to define dependent variables
+  # in order to tie the value of multiple variables together,
+  # we will preprocess the config to split variables separated by "--"
+  # and use the same values for each
+  model_kwargs.n_latent--guide_kwargs.n_latent:
+    values:
+      - 100
+  model_kwargs.decoder_n_layers--guide_kwargs.basal_encoder_n_layers:
+    values: 
+      - 1
+
+  # Model class + hyperparameters
+  model:
+    value: cradle_vae_Model
+  model_kwargs.mask_prior_prob:
+    value: 0.001
+  model_kwargs.embedding_prior_scale:
+    value: 1
+  model_kwargs.likelihood_key:
+    value: library_nb
+  model_kwargs.decoder_n_hidden:
+    values:
+      - 400
+  model_kwargs.sum_mode:
+    value: False
+
+  # Guide class + hyperparameters
+  guide:
+    value: cradle_vae_CorrelatedNormalGuide
+  guide_kwargs.basal_encoder_n_hidden:
+    values: # 400
+      - 400
+  guide_kwargs.basal_encoder_input_normalization:
+    value: log_standardize
+  guide_kwargs.embedding_encoder_n_layers:
+    values: # 4
+      - 4
+  guide_kwargs.embedding_encoder_n_hidden:
+    values:
+      - 400
+  guide_kwargs.mean_field_encoder:
+    value: False
+
+  # Loss module class + hyperparameters
+  loss_module:
+    value: cradle_vae_ELBOLossModule
+  loss_module_kwargs.beta:
+    values:
+      - 0.05
+  loss_module_kwargs.alpha:
+    value:
+
+  # Lightning module hyperparameters
+  lightning_module_kwargs.lr:
+    value: 0.0003
+  lightning_module_kwargs.n_particles:
+    values: 
+      - 5
+
+  # Predictor class + hyperparameters (used to evaluation)
+  predictor:
+    value: cradle_vae_Predictor
