@@ -13,7 +13,7 @@ conda env create --file environment.yaml
 ### Download datasets
 If you want to annotated dataset when training our model,
 ```
-wget "" # norman, dixit, replogle, adamson
+gdown https://drive.google.com/uc?id=1OIi1Z3fiw8yKbzarLXMlxy5tJRm1w8Rx # datasets(norman, dixit, replogle, adamson)
 tar -zxvf datasets.tar.gz
 ```
 ### Training models
