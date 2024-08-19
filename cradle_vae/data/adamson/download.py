@@ -1,13 +1,13 @@
 import os
 
-REPLOGLE_URL = "s3://insitro-research-2023-sams-vae/data/replogle.h5ad"
-
+ADAMSON_URL = "https://zenodo.org/records/7041849/files/AdamsonWeissman2016_GSM2406681_10X010.h5ad?download=1"
 
 def download_replogle_dataset(force: bool = False):
-    cache_dir = os.environ.get("SAMS_VAE_DATASET_DIR", "datasets")
-    path = os.path.join(cache_dir, "replogle.h5ad")
+    home_dir = "/".join(os.getcwd().split("/")[:-3])
+    cache_dir = f"{home_dir}/datasets"
+    path = os.path.join(cache_dir, "adamson.h5ad")
     is_cached = os.path.exists(path)
     if not force and not is_cached:
         os.makedirs(cache_dir, exist_ok=True)
-        os.system(f"aws s3 cp {REPLOGLE_URL} {path}")
+        os.system(f"wget -O {path} {ADAMSON_URL}")
     return path
