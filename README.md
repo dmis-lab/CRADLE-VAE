@@ -39,3 +39,7 @@ For larger experiments, we provide support for wandb sweeps using redun.
 ```
 bash sweep_norman.sh
 ```
+If you want to run a sweep, you should make the following changes in the train_{data}.py script:
+- Change the argument defaults: `default=None`
+- Comment out the cp line: `# cp.cuda.Device(config['devices'][0]).use()`
+- Modify the devices setting in `pl.Trainer`: Set `devices=-1`

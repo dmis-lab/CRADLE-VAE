@@ -324,7 +324,7 @@ def load_checkpoint(checkpoint_path: str, devices):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--experiment_path", default=None) # {seungheun}/cradle_vae_debug/2pj88nkq
+    parser.add_argument("--experiment_path", default=None) # ex) {wandb ID}/cradle_vae_debug/{run ID}
     parser.add_argument("--wandb", default=True) # action="store_true"
     parser.add_argument("--perturbseq", default=True) # action="store_true"
     parser.add_argument("--batch_size", type=int, default=128)
