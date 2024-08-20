@@ -2,17 +2,14 @@
 ---
 ### Install environment (Linux)
 ```
-# 1. Input your env path into prefix in environment.yaml
-# vim environment.yaml
-# prefix: /{your path}/anaconda3/envs/cradle_vae
-
-# 2. Create env
+# Create env
 conda env create --file environment.yaml
 ```
 
 ### Download datasets
 If you want to annotated dataset when training our model,
 ```
+pip install gdown
 gdown https://drive.google.com/uc?id=1OIi1Z3fiw8yKbzarLXMlxy5tJRm1w8Rx # datasets(norman, dixit, replogle, adamson)
 tar -zxvf datasets.tar.gz
 ```
