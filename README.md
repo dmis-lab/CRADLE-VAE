@@ -1,5 +1,10 @@
 # CRADLE-VAE: Enhancing Single-Cell Gene Perturbation Modeling with Counterfactual Reasoning-based Artifact Disentanglement
 ---
+### Prerequisites
+- Python: 3.9.19
+- CUDA: 11.8
+- 
+
 ### Install environment (Linux)
 ```
 # Create env
