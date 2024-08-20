@@ -3,7 +3,7 @@
 ### Install environment (Linux)
 ```
 # Create env
-conda env create --file environment.yaml
+conda env create --file environment.yml
 ```
 
 ### Download datasets
