@@ -211,4 +211,3 @@ dependencies:
       - yarl==1.9.4
       - zict==3.0.0
       - zipp==3.20.0
-prefix: /ssd1/seungheun/anaconda3/envs/cradle_vae
