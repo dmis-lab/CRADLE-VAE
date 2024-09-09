@@ -53,3 +53,51 @@ If you want to run a sweep, you should make the following changes in the `train_
 ---
 ## Acknowledgement
 This code includes modifications based on the code of SAMS-VAE. We are grateful to the authors for providing their code/models as open-source software. And figure was created with BioRender.
+
+## Contributors
+
+<table>
+	<tr>
+		<th>Name</th>		
+		<th>Affiliation</th>
+		<th>Email</th>
+	</tr>
+	<tr>
+		<td>Seungheun Baek&dagger;</td>		
+		<td>Data Mining and Information Systems Lab,<br>Korea University, Seoul, South Korea</td>
+		<td>sheunbaek@korea.ac.kr</td>
+	</tr>
+	<tr>
+		<td>Soyon Park&dagger;</td>		
+		<td>Data Mining and Information Systems Lab,<br>Korea University, Seoul, South Korea</td>
+		<td>soyon_park@korea.ac.kr</td>
+	</tr>
+	<tr>
+		<td>Yan Ting Chok</td>		
+		<td>Data Mining and Information Systems Lab,<br>Korea University, Seoul, South Korea</td>
+		<td>yanting1412@korea.ac.kr</td>
+	</tr>
+	<tr>
+		<td>Junhyun Lee</td>		
+		<td>Data Mining and Information Systems Lab,<br>Korea University, Seoul, South Korea</td>
+		<td>ljhyun33@korea.ac.kr</td>
+	</tr>
+	<tr>
+		<td>Jueon Park</td>		
+		<td>Data Mining and Information Systems Lab,<br>Korea University, Seoul, South Korea</td>
+		<td>jueon_park@korea.ac.kr</td>
+	</tr>
+	<tr>
+		<td>Mogan Gim*</td>		
+		<td>Department of Biomedical Engineering,<br>Hankuk University of Foreign Studies, Yongin, South Korea</td>
+		<td>gimmogan@hufs.ac.kr</td>
+	</tr>
+	<tr>
+		<td>Jaewoo Kang*</td>		
+		<td>Data Mining and Information Systems Lab,<br>Korea University, Seoul, South Korea</td>
+		<td>kangj@korea.ac.kr</td>
+	</tr>
+</table>
+
+- &dagger;: *Equal Contributors*
+- &ast;: *Corresponding Author*
